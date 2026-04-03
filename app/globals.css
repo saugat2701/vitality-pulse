@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+  
+  /* Biological Accent Hues */
+  --accent-neon-indigo: 239 84% 67%;
+  --accent-cyan: 191 91% 47%;
+  --accent-slate: 222 47% 11%;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(34, 211, 238, 0.08) 0px, transparent 50%);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Bio-Tech Glassmorphism */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-card:hover {
+  background: rgba(51, 65, 85, 0.3);
+  border-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Progress Rings */
+.vitality-ring {
+  background: conic-gradient(currentColor var(--percentage), transparent 0);
+  mask: radial-gradient(farthest-side, transparent 78%, black 79%);
+}
+
+.pulse-indigo {
+  animation: pulse-indigo 3s ease-in-out infinite;
+}
+
+@keyframes pulse-indigo {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.2); }
+  50% { box-shadow: 0 0 0 20px rgba(129, 140, 248, 0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Timeline Custom Bar */
+.bio-timeline-bar {
+  background: linear-gradient(to right, rgba(99, 102, 241, 0.2), rgba(34, 211, 238, 0.4), rgba(99, 102, 241, 0.2));
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
